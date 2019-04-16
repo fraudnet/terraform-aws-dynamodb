@@ -110,8 +110,13 @@ resource "aws_dynamodb_table" "default" {
   }
 
   ttl {
+<<<<<<< HEAD
     attribute_name = var.ttl_attribute
     enabled        = var.ttl_attribute != "" ? true : false
+=======
+    attribute_name = "${var.ttl_attribute}"
+    enabled        = "${length(ttl_attribute) > 0}"
+>>>>>>> added if condition for enabling TTL
   }
 
   tags = module.dynamodb_label.tags
