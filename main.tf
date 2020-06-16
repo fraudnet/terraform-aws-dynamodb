@@ -78,6 +78,13 @@ resource "aws_dynamodb_table" "default" {
     ]
   }
 
+  dynamic "replica" {
+    for_each = var.replica_regions
+    content {
+      region_name = replica.value
+    }
+  }
+
   dynamic "attribute" {
     for_each = local.attributes_final
     content {

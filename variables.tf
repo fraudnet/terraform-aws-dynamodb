@@ -173,3 +173,9 @@ variable "local_secondary_index_map" {
   default     = []
   description = "Additional local secondary indexes in the form of a list of mapped values"
 }
+
+variable "replica_regions" {
+  type = list
+  default = []
+  description = "Listt of AWS regions to create replicas into."
+}
