@@ -134,7 +134,7 @@ module "dynamodb_autoscaler" {
   attributes                   = var.attributes
   dynamodb_table_name          = concat(aws_dynamodb_table.default.*.id, [""])[0]
   dynamodb_table_arn           = concat(aws_dynamodb_table.default.*.arn, [""])[0]
-  dynamodb_indexes             = null_resource.global_secondary_index_names.*.triggers.name
+  dynamodb_indexes             = (var.enabled ? 1 : 0) * length(var.local_secondary_index_map) > 0 ? null_resource.global_secondary_index_names.*.triggers.name : []
   autoscale_write_target       = var.autoscale_write_target
   autoscale_read_target        = var.autoscale_read_target
   autoscale_min_read_capacity  = var.autoscale_min_read_capacity
