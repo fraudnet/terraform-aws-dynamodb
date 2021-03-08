@@ -1,5 +1,5 @@
 module "dynamodb_label" {
-  source     = "git::https://github.com/jacoor/terraform-null-label.git?ref=tags/0.24.1"
+  source     = "git::https://github.com/jacoor/terraform-null-label.git?ref=tags/0.16.0"
   enabled    = var.enabled
   namespace  = var.namespace
   stage      = var.stage
