@@ -1,5 +1,5 @@
 module "dynamodb_label" {
-  source     = "git::https://github.com/jacoor/terraform-null-label.git?ref=tags/0.24.1"
+  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.24.1"
   enabled    = var.enabled
   namespace  = var.namespace
   stage      = var.stage
@@ -7,6 +7,7 @@ module "dynamodb_label" {
   delimiter  = var.delimiter
   attributes = var.attributes
   tags       = var.tags
+  regex_replace_chars = "/[^a-zA-Z0-9-_]/"
 }
 
 locals {
