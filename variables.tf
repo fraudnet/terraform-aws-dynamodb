@@ -53,7 +53,7 @@ variable "autoscale_read_target" {
 
 variable "autoscale_min_read_capacity" {
   type        = number
-  default     = 5
+  default     = 0
   description = "DynamoDB autoscaling min read capacity"
 }
 
@@ -65,7 +65,7 @@ variable "autoscale_max_read_capacity" {
 
 variable "autoscale_min_write_capacity" {
   type        = number
-  default     = 5
+  default     = 0
   description = "DynamoDB autoscaling min write capacity"
 }
 
@@ -175,7 +175,7 @@ variable "local_secondary_index_map" {
 }
 
 variable "replica_regions" {
-  type = list
-  default = []
+  type        = list(any)
+  default     = []
   description = "Listt of AWS regions to create replicas into."
 }
