@@ -54,15 +54,16 @@ resource "null_resource" "local_secondary_index_names" {
 }
 
 resource "aws_dynamodb_table" "default" {
-  count            = var.enabled ? 1 : 0
-  name             = module.dynamodb_label.id
-  billing_mode     = var.billing_mode
-  read_capacity    = var.autoscale_min_read_capacity
-  write_capacity   = var.autoscale_min_write_capacity
-  hash_key         = var.hash_key
-  range_key        = var.range_key
-  stream_enabled   = var.enable_streams
-  stream_view_type = var.enable_streams ? var.stream_view_type : ""
+  count                       = var.enabled ? 1 : 0
+  name                        = module.dynamodb_label.id
+  billing_mode                = var.billing_mode
+  read_capacity               = var.autoscale_min_read_capacity
+  write_capacity              = var.autoscale_min_write_capacity
+  hash_key                    = var.hash_key
+  range_key                   = var.range_key
+  stream_enabled              = var.enable_streams
+  stream_view_type            = var.enable_streams ? var.stream_view_type : ""
+  deletion_protection_enabled = var.deletion_protection_enabled
 
   server_side_encryption {
     enabled = var.enable_encryption
