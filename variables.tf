@@ -179,3 +179,8 @@ variable "replica_regions" {
   default     = []
   description = "Listt of AWS regions to create replicas into."
 }
+
+variable "deletion_protection_enabled" {
+  default     = true
+  description = "(Optional) Enables deletion protection for table. Defaults to true."
+}
