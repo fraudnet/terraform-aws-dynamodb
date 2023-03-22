@@ -181,6 +181,6 @@ variable "replica_regions" {
 }
 
 variable "deletion_protection_enabled" {
-  default     = false
-  description = "(Optional) Enables deletion protection for table. Defaults to false."
+  default     = true
+  description = "(Optional) Enables deletion protection for table. Defaults to true."
 }
